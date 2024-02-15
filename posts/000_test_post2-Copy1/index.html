@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gabriel Thiessen">
+<meta name="dcterms.date" content="2024-02-15">
+<meta name="description" content="How ChatGPT 4 answer varies according to programming languages and their popularity">
 
-<title>My Explorations with LLMs</title>
+<title>My Explorations with LLMs - Not enough data?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Explorations with LLMs</span>
     </a>
   </div>
@@ -149,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,209 +115,138 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">My Explorations with LLMs</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Not enough data?</h1>
+                  <div>
+        <div class="description">
+          How ChatGPT 4 answer varies according to programming languages and their popularity
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">ChatGPT</div>
+                <div class="quarto-category">update</div>
+                <div class="quarto-category">3.5 vs 4.0</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Gabriel Thiessen </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 15, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="3.5 vs 4.0">3.5 vs 4.0 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Bets">Bets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ChatGPT">ChatGPT <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Copilot">Copilot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Security">Security <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Super Bowl">Super Bowl <span class="quarto-category-count">(1)</span></div><div class="category" data-category="prompting">prompting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="update">update <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p><img src="mainFight.png" width="50%"></p>
+<section id="is-chatgpt-actually-the-best-friend-of-every-programmer" class="level2">
+<h2 class="anchored" data-anchor-id="is-chatgpt-actually-the-best-friend-of-every-programmer">Is ChatGPT actually the best friend of every programmer?</h2>
+<p>For .</p>
+<ul>
+<li>This is what ChatGPT 4 generated</li>
+</ul>
+<blockquote class="blockquote">
+<p>Eco-Friendly Packaging Solutions: Develop a range of biodegradable and compostable packaging products for businesses in the food, beverage, and retail sectors, aiming to reduce plastic waste and carbon footprint.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Telehealth Services for Mental Health: Create an online platform that provides accessible, affordable, and confidential mental health services, including therapy sessions, mental wellness tools, and community support, especially targeting remote areas with limited access to such services.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Smart Home Integration Systems: Develop a comprehensive smart home system that seamlessly integrates various smart devices and appliances, offering enhanced convenience, energy efficiency, and security through a single, user-friendly interface.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Subscription-Based Meal Prep Kits for Special Diets: Offer a subscription service that delivers weekly meal prep kits catering to specific dietary needs such as vegan, keto, gluten-free, etc., focusing on healthy, organic ingredients and sustainable packaging.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>AI-Powered Educational Tools for Personalized Learning: Create an AI-driven platform that offers personalized learning experiences for students, adapting to their learning pace, style, and interests, and providing real-time feedback to enhance their educational journey.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Virtual Reality Experiences for Remote Tourism: Develop virtual reality packages that allow users to experience travel and cultural tours from the comfort of their homes, targeting travel enthusiasts unable to travel due to health, financial, or other constraints.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Renewable Energy Solutions for Small Businesses: Offer consultancy and implementation services for small and medium-sized enterprises (SMEs) to transition to renewable energy sources, including solar, wind, and biomass, reducing their energy costs and environmental impact.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Wearable Health Monitoring Devices: Design and manufacture wearable devices that monitor vital health metrics in real-time, such as heart rate, blood pressure, and glucose levels, catering to individuals with chronic conditions or those seeking to maintain a healthy lifestyle.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Blockchain-Based Supply Chain Management Platform: Create a blockchain platform that enhances transparency, efficiency, and security in supply chains, allowing businesses to track products from origin to consumer, reducing fraud, and ensuring ethical practices.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Sustainable Urban Farming Solutions: Develop innovative urban farming solutions, such as vertical farms or hydroponic systems, that enable city dwellers to grow fresh produce efficiently, promoting local food production and sustainability.</p>
+</blockquote>
+<ul>
+<li>Some nice business ideas, right? Now, this is what GPT 3.5 generated</li>
+</ul>
+<blockquote class="blockquote">
+<p>Virtual Event Management Platform: Develop a comprehensive platform that enables businesses and organizations to plan, manage, and host virtual events such as conferences, trade shows, and webinars. Offer features like customizable event spaces, attendee engagement tools, and analytics.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Eco-Friendly Packaging Solutions: Create a company that specializes in producing sustainable and biodegradable packaging materials for businesses looking to reduce their environmental footprint. Offer customizable solutions for various industries, including food and beverage, cosmetics, and e-commerce.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Remote Work Productivity Tools: Develop software tools designed to enhance productivity and collaboration for remote teams. This could include project management platforms, communication tools, and virtual team-building solutions tailored to the needs of distributed workforces.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Personalized Health and Wellness Plans: Launch a service that provides personalized health and wellness plans based on individual needs, preferences, and goals. Offer features such as virtual consultations with nutritionists, fitness trainers, and wellness coaches, along with customized meal plans and exercise routines.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Renewable Energy Consultancy: Start a consultancy firm specializing in renewable energy solutions for businesses and organizations seeking to transition to sustainable energy sources. Provide services such as energy audits, feasibility studies, and implementation strategies for solar, wind, and other renewable energy technologies.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Tech-Empowered Elderly Care Services: Create a business that leverages technology to provide innovative elderly care services, such as remote health monitoring systems, medication management apps, and virtual caregiver support networks. Focus on improving quality of life and promoting independence for seniors.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Subscription Box for Sustainable Living: Curate and deliver subscription boxes filled with eco-friendly products and sustainable lifestyle items, such as organic skincare products, reusable household goods, and ethically sourced clothing. Offer monthly or quarterly subscription plans with customizable options.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Online Learning Platform for Skilled Trades: Develop an online learning platform that offers courses and certification programs for skilled trades such as plumbing, electrical work, carpentry, and HVAC repair. Provide high-quality instructional content, interactive simulations, and hands-on training modules.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Smart Home Installation and Integration Services: Launch a company that specializes in installing and integrating smart home devices and systems, such as smart thermostats, security cameras, lighting controls, and home automation hubs. Offer consultation, installation, and maintenance services to homeowners and businesses.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Virtual Interior Design Consultancy: Provide virtual interior design services for residential and commercial clients, offering personalized design consultations, mood boards, and 3D renderings. Utilize technology such as augmented reality (AR) to allow clients to visualize design concepts in their own spaces.</p>
+</blockquote>
+<section id="ok-so-what" class="level3">
+<h3 class="anchored" data-anchor-id="ok-so-what">Ok, so what?</h3>
+<p>On a first look, it seems that both the answers are fundamentally the same. However, there is one specific subtlety that makes this whole comparison really interesting. If you take a closer look, it is possible to see that ChatGPT 3.5 mentions in some of his answers business ideas that are related to the use of virtual reality. However, there is no reference to AI-related businesses. Meanwhile, ChatGPT 4.0 included some of its business ideas <strong>AI-Powered Educational Tools for Personalized Learning</strong>. Even though it is a minor change, I truly believe that this is a really interesting way to analyze how updates on ChatGPT parameters reflect on their answers.</p>
+</section>
+<section id="recent-updates" class="level3">
+<h3 class="anchored" data-anchor-id="recent-updates">Recent updates</h3>
+<p>To clarify my point, it is worth mentioning that the last update on ChatGPT 3.5 happened in January 2022 (reported by the AI tool itself). However, ChatGPT 4.0 includes data up to April 2023. Back in January 2022, AI was not a big topic when it came to business ideas, as we were still focusing on the Metaverse and blockchain. In between these two dates, though, we witnessed an abnormal growth in the use and popularity of AI tools for the most varied topics, ranging from education to business. Therefore, it is naturally reflected in the answers that this LLM provides. Pretty cool, right?</p>
+<p><strong>Thank you for reading!</strong></p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="LLMs,ChatGPT,update,3.5 vs 4.0" data-listing-date-sort="1707955200000" data-listing-file-modified-sort="1708029932206" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="982">
-<div class="thumbnail">
-<p><a href="./posts/000_test_post2-Copy1/index.html" class="no-external"></a></p><a href="./posts/000_test_post2-Copy1/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/000_test_post2-Copy1/mainFight.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/000_test_post2-Copy1/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/000_test_post2-Copy1/index.html" class="no-external">Not enough data?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/000_test_post2-Copy1/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('update'); return false;">
-update
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('3.5 vs 4.0'); return false;">
-3.5 vs 4.0
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/000_test_post2-Copy1/index.html" class="no-external">How ChatGPT 4 answer varies according to programming languages and their popularity</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/000_test_post2-Copy1/index.html" class="no-external">
-<div class="listing-date">
-Feb 15, 2024
-</div>
-<div class="listing-author">
-Gabriel Thiessen
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="LLMs,ChatGPT,update,3.5 vs 4.0" data-listing-date-sort="1707523200000" data-listing-file-modified-sort="1708029932222" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1050">
-<div class="thumbnail">
-<p><a href="./posts/000_test_post2/index.html" class="no-external"></a></p><a href="./posts/000_test_post2/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/000_test_post2/mainFight.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/000_test_post2/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/000_test_post2/index.html" class="no-external">Change in parameters and financial markets</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/000_test_post2/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('update'); return false;">
-update
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('3.5 vs 4.0'); return false;">
-3.5 vs 4.0
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/000_test_post2/index.html" class="no-external">How ChatGPT 4 recent update reflects on its answers to some prompts </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/000_test_post2/index.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2024
-</div>
-<div class="listing-author">
-Gabriel Thiessen
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="LLMs,prompting,Copilot" data-listing-date-sort="1707523200000" data-listing-file-modified-sort="1708029932270" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="758">
-<div class="thumbnail">
-<p><a href="./posts/counting_copilot/index.html" class="no-external"></a></p><a href="./posts/counting_copilot/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/counting_copilot/mainCounting.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/counting_copilot/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/counting_copilot/index.html" class="no-external">1 + 1 = 2 … perhaps not for Microsoft Copilot</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/counting_copilot/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('prompting'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Copilot'); return false;">
-Copilot
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/counting_copilot/index.html" class="no-external">A brief analysis of one of Microsoft Copilot weaknesses</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/counting_copilot/index.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2024
-</div>
-<div class="listing-author">
-Gabriel
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="LLMs,Super Bowl,Bets,Security" data-listing-date-sort="1707523200000" data-listing-file-modified-sort="1708029932246" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="559">
-<div class="thumbnail">
-<p><a href="./posts/counting_copilot-Copy1/index.html" class="no-external"></a></p><a href="./posts/counting_copilot-Copy1/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/counting_copilot-Copy1/sb.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/counting_copilot-Copy1/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/counting_copilot-Copy1/index.html" class="no-external">Odds are not good if you are betting on ChatGPT</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/counting_copilot-Copy1/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Super Bowl'); return false;">
-Super Bowl
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Bets'); return false;">
-Bets
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Security'); return false;">
-Security
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/counting_copilot-Copy1/index.html" class="no-external">An overview of ChatGPT unbiased view and security protocols</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/counting_copilot-Copy1/index.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2024
-</div>
-<div class="listing-author">
-Gabriel
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

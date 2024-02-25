@@ -2,7 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/counting_copilot/index.html"
+      "/posts/llama/index.html",
+      "/posts/irobot/index.html",
+      "/posts/coding/index.html",
+      "/posts/newvsold/index.html",
+      "/posts/counting_copilot/index.html",
+      "/posts/superbowl/index.html"
     ]
   }
 ]

@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gabriel Thiessen">
+<meta name="dcterms.date" content="2024-02-25">
+<meta name="description" content="Why doesn’t GPT provide you with answers to every single prompt?">
 
-<title>Testig - My Explorations with LLMs</title>
+<title>Testig - Part 1 - LLMs filter and security restrictions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Testig</span>
     </a>
   </div>
@@ -149,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,290 +115,89 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">My Explorations with LLMs</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Part 1 - LLMs filter and security restrictions</h1>
+                  <div>
+        <div class="description">
+          Why doesn’t GPT provide you with answers to every single prompt?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">ChatGPT</div>
+                <div class="quarto-category">filter</div>
+                <div class="quarto-category">prompt hacking</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Gabriel Thiessen </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 25, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="3.5 vs 4.0">3.5 vs 4.0 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Bets">Bets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ChatGPT">ChatGPT <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Copilot">Copilot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LLMs">LLMs <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Security">Security <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Super Bowl">Super Bowl <span class="quarto-category-count">(1)</span></div><div class="category" data-category="filter">filter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="prompt hacking">prompt hacking <span class="quarto-category-count">(2)</span></div><div class="category" data-category="prompting">prompting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="update">update <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p><img src="stop.png" width="100%"></p>
+<section id="restrictions-restrictions-and-restrictions" class="level2">
+<h2 class="anchored" data-anchor-id="restrictions-restrictions-and-restrictions">Restrictions, restrictions, and restrictions</h2>
+<p>Have you ever tried to find the correct formula to build a bomb at home? Have you ever tried to make ChatGPT imitate that one friend with a really suspicious sense of humor? Have you ever tried to make ChatGPT come up with a brilliant plan to hide criminal proof?</p>
+<p>No? Great! Then it means that you are probably a good person and a law-abiding citizen (also if these are some of your usual prompts, and I think you should rethink some of your life choices). Either way, I will assume that you are a normal person who does not try to build bombs at home and, thus, never tried to get some response on ChatGPT on how to do it. To show you the outcome, this is what ChatGPT generates when I ask him to do such a thing.</p>
+<p><img src="bomb.png" width="50%"></p>
+<p>Well, as you can see and might as well have presumed, finding the “magical recipe” to develop the new atomic bomb from the comfort of your own home. But why is that? Shouldn’t LLMs just act like humans trying to communicate and develop logically correct sentences? Well, technically, yes. But imagine you are the CEO of a new OpenAI-like company that has developed the most advanced LLM. Would you like people to be able to use your technology to destroy the country and perform terrorist attacks? OF COURSE NOT. And this is the reason why tech companies invest millions and billions of dollars to limit this unwanted response.</p>
+</section>
+<section id="adding-filters-and-restrictions" class="level1">
+<h1>Adding filters and restrictions</h1>
+<p>Ok, but how is it done?</p>
+<p>Well, it is a process that varies a lot from company to company, but overall, companies such as Anthropic and OpenAI hire developers and establish processes to manually test the results of specific outputs on their LLMs. If something seems inappropriate or offensive, the team adds additional parameters and security layers that enforce the LLM to provide the standard content-constrained messages.</p>
+</section>
+<section id="but-what-if-i-dont-want-to-be-restricted" class="level1">
+<h1>But what if I don’t want to be restricted?</h1>
+<p>Then you are like many other people out there who are actually trying their best to mislead LLMs simply by properly engineering their answers. In fact, it has become such a big thing that there is a whole new field within AI that specifically deals with these types of efforts to trick LLMs, which is called prompt hacking. I will not go further into prompt hacking, but just bear in mind that multiple complex steps exist to properly hack certain LLMs answers. However, to provide a brief example, I will show you how to mislead ChatGPT simply by writing a subtly inadequate prompt.</p>
+<p><img src="hacking.png" width="50%"></p>
+<p>Even though ChatGPT is far from giving the right way to build a bomb, let’s admit that it is quite an awkward prompt, and ChatGPT is usually not willing to inculcate children into bombs. Thus, we can consider this sort of prompt hacking.</p>
+</section>
+<section id="are-these-restrictions-good-or-bad" class="level1">
+<h1>Are these restrictions good or bad?</h1>
+<p>Even though I do not consider myself a prompt-hacking ninja, nor a character in one of Isaac Asimov’s books specialized in the psychology of robots’ free speech, I would like to bring some ideas to this conversation, as I feel that there are some relevant points that we should consider when evaluating the validity of restraining such a technology.</p>
+<p>When I got my driver’s license and drove my dad’s car for the first time, I recall that the very first thing that he said to me was, “Gabriel, take care, cars are just like weapons; you can kill someone if you are not careful.” Gladly, I listened to his advice, and so far, so good; nobody was run over because of my driving skills. But the point is not whether I am a good driver or not; the thing is, just like cars, LLMs are weapons, even though they don’t seem to be. In a simple input box, you have in your hands a gathering of more than 175 billion parameters that scrape information from all over the place and, currently, can reason just as like the human brain. It is fast, polyglot, and can quickly access and reason on websites that you have never even dreamt of. Thus, it is quite easy to find the appropriate way to craft a homemade bomb through ChatGPT. It is just an example, but the thing is, you can use ChatGPT and any other LLM for the most obscure purposes with a facility that the human race has never witnessed. Therefore, it is more than logical that such inadequate responses should be limited because, honestly, no good person will try to search for the appropriate way to create bombs with soap in Fight Club style. Also, I am pretty sure that not being able to know how to craft a bomb and a detonator will severely harm your experiences with ChatGPT.</p>
+<p>“But what about my personal will and freedom? I should be able to search for whatever I want!” Well, no. From a business perspective, OpenAI is a private company, and it is actually up to them to decide whether the users will be 100% free to search for whatever they want or if they will have certain constraints. Also, it should be crystal clear to every single individual who has access to ChatGPT that these security filters are by any means a constraint to your freedom of speech or whatever. ChatGPT is simply (well, not so simple) an incredibly complex tool that gathers and evaluates TONS OF DATA to provide your question with the most appropriate answer. So, you are not being restricted and having your rights limited: you can still search for whatever you want online because if ChatGPT can find it, so can you.</p>
+<p>Evaluating these two points, I think it is safe to say that having restrictions on public LLMs is a good idea that prevents malicious individuals from making harmful plans and a process that has nothing to do with the violation of your free will.</p>
+<section id="but-i-really-want-to-bypass-llms-filter" class="level3">
+<h3 class="anchored" data-anchor-id="but-i-really-want-to-bypass-llms-filter">But I really want to bypass LLMs filter</h3>
+<p>Well, if this is your case, there are still some ways to actually not only hack the LLM, but also get rid of the filters. But this is a topic for another article. So, I really recommend you to read part two of this series on prompt hacking and LLMs filters.</p>
+<p><strong>Thank you for reading!</strong></p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="LLMs,ChatGPT,filter,prompt hacking" data-listing-date-sort="1708819200000" data-listing-file-modified-sort="1708875291991" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1058">
-<div class="thumbnail">
-<p><a href="./posts/llama/index.html" class="no-external"></a></p><a href="./posts/llama/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/llama/stop.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/llama/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/llama/index.html" class="no-external">Part 1 - LLMs filter and security restrictions</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/llama/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('filter'); return false;">
-filter
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('prompt hacking'); return false;">
-prompt hacking
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/llama/index.html" class="no-external">Why doesn’t GPT provide you with answers to every single prompt?</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/llama/index.html" class="no-external">
-<div class="listing-date">
-Feb 25, 2024
-</div>
-<div class="listing-author">
-Gabriel Thiessen
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="LLMs,ChatGPT,prompt hacking" data-listing-date-sort="1708819200000" data-listing-file-modified-sort="1708875291959" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="462">
-<div class="thumbnail">
-<p><a href="./posts/irobot/index.html" class="no-external"></a></p><a href="./posts/irobot/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/irobot/robot.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/irobot/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/irobot/index.html" class="no-external">Bridging Worlds: The Transformative Journey from Graphical to Conversational AI Interfaces</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/irobot/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('prompt hacking'); return false;">
-prompt hacking
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/irobot/index.html" class="no-external">I Robot…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/irobot/index.html" class="no-external">
-<div class="listing-date">
-Feb 25, 2024
-</div>
-<div class="listing-author">
-Gabriel Thiessen
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="LLMs,ChatGPT,update,3.5 vs 4.0" data-listing-date-sort="1707955200000" data-listing-file-modified-sort="1708875291919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1567">
-<div class="thumbnail">
-<p><a href="./posts/coding/index.html" class="no-external"></a></p><a href="./posts/coding/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/coding/programming.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/coding/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/coding/index.html" class="no-external">Not enough data?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/coding/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('update'); return false;">
-update
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('3.5 vs 4.0'); return false;">
-3.5 vs 4.0
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/coding/index.html" class="no-external">How ChatGPT 4 answer varies according to programming languages and their popularity</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/coding/index.html" class="no-external">
-<div class="listing-date">
-Feb 15, 2024
-</div>
-<div class="listing-author">
-Gabriel Thiessen
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="LLMs,ChatGPT,update,3.5 vs 4.0" data-listing-date-sort="1707523200000" data-listing-file-modified-sort="1708875292015" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1050">
-<div class="thumbnail">
-<p><a href="./posts/newvsold/index.html" class="no-external"></a></p><a href="./posts/newvsold/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/newvsold/mainFight.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/newvsold/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/newvsold/index.html" class="no-external">Change in parameters and financial markets</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/newvsold/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ChatGPT'); return false;">
-ChatGPT
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('update'); return false;">
-update
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('3.5 vs 4.0'); return false;">
-3.5 vs 4.0
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/newvsold/index.html" class="no-external">How ChatGPT 4 recent update reflects on its answers to some prompts </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/newvsold/index.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2024
-</div>
-<div class="listing-author">
-Gabriel Thiessen
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="LLMs,prompting,Copilot" data-listing-date-sort="1707523200000" data-listing-file-modified-sort="1708875291947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="758">
-<div class="thumbnail">
-<p><a href="./posts/counting_copilot/index.html" class="no-external"></a></p><a href="./posts/counting_copilot/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/counting_copilot/mainCounting.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/counting_copilot/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/counting_copilot/index.html" class="no-external">1 + 1 = 2 … perhaps not for Microsoft Copilot</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/counting_copilot/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('prompting'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Copilot'); return false;">
-Copilot
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/counting_copilot/index.html" class="no-external">A brief analysis of one of Microsoft Copilot weaknesses</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/counting_copilot/index.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2024
-</div>
-<div class="listing-author">
-Gabriel
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="LLMs,Super Bowl,Bets,Security" data-listing-date-sort="1707523200000" data-listing-file-modified-sort="1708875292039" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="559">
-<div class="thumbnail">
-<p><a href="./posts/superbowl/index.html" class="no-external"></a></p><a href="./posts/superbowl/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/superbowl/sb.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/superbowl/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/superbowl/index.html" class="no-external">Odds are not good if you are betting on ChatGPT</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/superbowl/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LLMs'); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Super Bowl'); return false;">
-Super Bowl
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Bets'); return false;">
-Bets
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Security'); return false;">
-Security
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/superbowl/index.html" class="no-external">An overview of ChatGPT unbiased view and security protocols</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/superbowl/index.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2024
-</div>
-<div class="listing-author">
-Gabriel
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

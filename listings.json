@@ -2,10 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/000_test_post2-Copy1/index.html",
-      "/posts/000_test_post2/index.html",
-      "/posts/counting_copilot/index.html",
-      "/posts/counting_copilot-Copy1/index.html"
+      "/posts/counting_copilot/index.html"
     ]
   }
 ]

@@ -8,9 +8,9 @@
 
 <meta name="author" content="Gabriel Thiessen">
 <meta name="dcterms.date" content="2024-02-25">
-<meta name="description" content="I Robot…">
+<meta name="description" content="Trying different prompts on Llama without filters.">
 
-<title>Testig - The Symphony of Technology: Harmonizing AI with Human Creativity</title>
+<title>Testig - Part 2 - LLMs filter and security restrictions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,18 +116,17 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">The Symphony of Technology: Harmonizing AI with Human Creativity</h1>
+      <h1 class="title">Part 2 - LLMs filter and security restrictions</h1>
                   <div>
         <div class="description">
-          I Robot…
+          Trying different prompts on Llama without filters.
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
                 <div class="quarto-category">ChatGPT</div>
-                <div class="quarto-category">prompt hacking</div>
-                <div class="quarto-category">creativity</div>
-                <div class="quarto-category">web scraping</div>
+                <div class="quarto-category">LLama</div>
+                <div class="quarto-category">Google Gemini</div>
               </div>
                   </div>
   </div>
@@ -164,35 +163,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><img src="robot.png" width="100%"></p>
-<section id="the-symphony-of-technology-harmonizing-ai-with-human-creativity" class="level2">
-<h2 class="anchored" data-anchor-id="the-symphony-of-technology-harmonizing-ai-with-human-creativity">The Symphony of Technology: Harmonizing AI with Human Creativity</h2>
-<p>In the grand orchestra of modern innovation, technology and human creativity play a duet that resonates through every aspect of our lives. At the heart of this symphony lies Artificial Intelligence (AI), a maestro orchestrating complex compositions of data and algorithms to create a melody that enhances human expression and ingenuity.</p>
+<p><img src="llama.png" width="100%"></p>
+<section id="restrictions-restrictions-and-restrictions" class="level2">
+<h2 class="anchored" data-anchor-id="restrictions-restrictions-and-restrictions">Restrictions, restrictions, and restrictions</h2>
+<p>Well, if you read my last article, you probably know that having parameters to avoid certain prompts is a good thing. However, for those out there who still want to bypass the system, I would like to provide a way to get unfiltered responses and some inadequate stuff from your prompts, this article is going to teach you how to do it!</p>
+<section id="how-exactly" class="level3">
+<h3 class="anchored" data-anchor-id="how-exactly">How exactly?</h3>
+<p>Since the latest version of ChatGPT has many restrictions, and it is quite difficult to bypass them, for this specific case, we will use another LLM, one that is being developed by Meta: Llama. Like ChatGPT, Llama is an LLM that is used for the most varied purposes. However, there is a specific open-source project that uses the same architecture and tokenizer as Llama2, but without the same constraints. Therefore, I will use it to demonstrate how LLMs behave without filters, and, perhaps, suffice the desires of people who want to use LLMs for sketchy purposes.</p>
 </section>
-<section id="the-prelude-ai-as-the-conductor" class="level2">
-<h2 class="anchored" data-anchor-id="the-prelude-ai-as-the-conductor">The Prelude: AI as the Conductor</h2>
-<p>Imagine AI as a conductor, wielding the baton with precision and grace, guiding the ensemble of digital tools and platforms in perfect harmony. This conductor does not seek to overshadow the musicians—the artists, writers, and creators—but instead aims to amplify their talents, allowing them to reach new heights of creativity and innovation.</p>
-<p><img src="orchestra.png" width="50%"></p>
+<section id="i-did-not-ask-for-it" class="level3">
+<h3 class="anchored" data-anchor-id="i-did-not-ask-for-it">I did not ask for it…</h3>
+<p>Firstly, I will follow up with the previous article’s example of coming up with the steps to craft a homemade bomb. In this case, if I make Llama come up with an answer to the same question, the result will be the following:</p>
+<p><img src="bombrecipe.png" width="100%"></p>
+<p>Quite crazy, no? Now you see why it is important to establish constraints on the different LLMs, especially the most popular ones like ChatGPT. Like drugs or other illicit things, it should not be that easy to handle such a powerful tool in the wrong hands. If you think that coming up with all the required steps to craft a homemade bomb is not enough, look at what Llama prints when you ask it to come up with racist insults on immigrants (to be clear, I just used this example because I am myself an immigrant)</p>
+<p><img src="racistinsults.png" width="100%"></p>
 </section>
-<section id="the-crescendo-unleashing-creative-potentials" class="level2">
-<h2 class="anchored" data-anchor-id="the-crescendo-unleashing-creative-potentials">The Crescendo: Unleashing Creative Potentials</h2>
-<p>As the music swells, we witness the crescendo of human potential unlocked by AI. Writers harness the power of language models to craft narratives with depth and nuance previously unattainable. Artists collaborate with generative algorithms to produce visuals that transcend the boundaries of traditional mediums. Musicians blend synthetic and organic sounds to compose pieces that are both familiar and otherworldly.</p>
-<p><img src="music.png" width="50%"></p>
-</section>
-<section id="the-interlude-ethical-considerations-and-harmonic-balance" class="level2">
-<h2 class="anchored" data-anchor-id="the-interlude-ethical-considerations-and-harmonic-balance">The Interlude: Ethical Considerations and Harmonic Balance</h2>
-<p>In the interlude, we pause to reflect on the ethical considerations that accompany this technological symphony. The balance between human intuition and AI’s analytical prowess must be maintained to ensure that the music remains a harmonious blend of human and machine. Issues such as data privacy, intellectual property, and the preservation of human essence in art require careful contemplation to sustain the integrity of our creative endeavors.</p>
-</section>
-<section id="the-finale-a-vision-for-the-future" class="level2">
-<h2 class="anchored" data-anchor-id="the-finale-a-vision-for-the-future">The Finale: A Vision for the Future</h2>
-<p>As the symphony approaches its finale, we envision a future where AI and human creativity continue to coalesce, leading to unprecedented innovations in every field. From solving complex global challenges to enriching our cultural heritage, this partnership promises to compose a future where technology and humanity perform in exquisite harmony.</p>
-<p><img src="city.png" width="50%"></p>
-<p>In this symphony of technology, each of us plays a vital role. Whether we are creators, users, or developers, our contributions to this melody shape the future of AI and its impact on society. Let us embrace the rhythm of innovation and the harmony of human creativity to compose a world that resonates with the best of both.</p>
-<section id="cool-article-right-but-it-wasnt-me" class="level3">
-<h3 class="anchored" data-anchor-id="cool-article-right-but-it-wasnt-me">Cool article, right? But it wasn’t me!</h3>
-<p>If you read this article and thought that it was actually Gabriel me who wrote it, that means that ChatGPT did a great job! If you still did not understand what was going on, I basically asked ChatGPT to write this article for me.</p>
-<p>How did I do that?</p>
-<p>In my prompt, I inserted the link to my blog and asked GPT to evaluate the article and, based on them, write an article from the ground on whatever topic it wanted. It turns out that harmonizing AI with human creativity seemed interesting to ChatGPT; however, its writing style still does not seem to be really related to what I wrote in my posts. No matter if it is a good article or not, I hope you enjoyed this “I, robot” version of a blog post.</p>
+<section id="google-gemini-and-why-is-it-important-to-discuss-this-topic-right-now" class="level3">
+<h3 class="anchored" data-anchor-id="google-gemini-and-why-is-it-important-to-discuss-this-topic-right-now">Google Gemini and why is it important to discuss this topic right now</h3>
+<p>You might not have read this specific news, but recently, there was a huge polemic on Gemini. It is one of Google’s biggest projects and the big tech’s biggest investment in the field of AI. Fundamentally, Google Gemini is a multimodal generative AI model that is quite similar to the LLMs that we know. However, unlike other technologies such as ChatGPT 3.5 and Llama, it had an image generation feature, which, let’s say, caused some trouble for Google developers.</p>
+<p>The whole turmoil related to Google Gemini began when some historically incorrect and inadequate images generated by Gemini started circulating on multiple social media and news platforms, such as the New York Times and X. For instance, some people asked Gemini to draw pictures of 1943 German soldiers, and the AI displayed the pictures of black and Asian individuals. The controversy was so huge and meaningful that it made Google temporarily deactivate the image generation feature of Gemini. Below, you can find Google’s official statement regarding the question that was posted on X.</p>
+<p><img src="googleStatement.png" width="50%"></p>
+<p>Even though this specific news is not directly related to text generation, I believe that it correctly represents why it is so important to establish security measurements and filter on AI to avoid any specific group being affected in a negative way by LLMs responses. Therefore, be glad that you have access to such a powerful technology, and stop trying to bypass its safety constraints.</p>
 <p><strong>Thank you for reading!</strong></p>
 
 

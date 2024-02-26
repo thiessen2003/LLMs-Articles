@@ -2,14 +2,14 @@ project:
   type: website
 
 website:
-  title: "Testig"
+  title: "My experience with LLMs"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/thiessen2003
+      - icon: linkedin
+        href: https://www.linkedin.com/in/gabriel-thiessen/
 format:
   html:
     theme: lumen

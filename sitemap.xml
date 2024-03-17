@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/superbowl/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.729Z</lastmod>
-  </url>
-  <url>
-    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/irobot/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.601Z</lastmod>
-  </url>
-  <url>
-    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/llama/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.645Z</lastmod>
-  </url>
-  <url>
-    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/coding/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.553Z</lastmod>
-  </url>
-  <url>
-    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2024-02-29T20:52:25.549Z</lastmod>
-  </url>
-  <url>
     <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.549Z</lastmod>
+    <lastmod>2024-03-17T23:06:07.744Z</lastmod>
   </url>
   <url>
     <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/newvsold/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.709Z</lastmod>
+    <lastmod>2024-03-17T23:06:07.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/portuguese/index.html</loc>
+    <lastmod>2024-03-17T23:06:07.924Z</lastmod>
   </url>
   <url>
     <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/counting_copilot/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.581Z</lastmod>
+    <lastmod>2024-03-17T23:06:07.776Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/superbowl/index.html</loc>
+    <lastmod>2024-03-17T23:06:07.968Z</lastmod>
   </url>
   <url>
     <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/llama2/index.html</loc>
-    <lastmod>2024-02-29T20:52:25.677Z</lastmod>
+    <lastmod>2024-03-17T23:06:07.868Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/coding/index.html</loc>
+    <lastmod>2024-03-17T23:06:07.748Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/llama/index.html</loc>
+    <lastmod>2024-03-17T23:06:07.840Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/posts/irobot/index.html</loc>
+    <lastmod>2024-03-17T23:06:07.796Z</lastmod>
+  </url>
+  <url>
+    <loc>https://thiessen2003.github.io/comm4190_S24_Using_LLMs_Blog/about.html</loc>
+    <lastmod>2024-03-17T23:06:07.744Z</lastmod>
   </url>
 </urlset>

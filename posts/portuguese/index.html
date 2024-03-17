@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Gabriel">
-<meta name="dcterms.date" content="2024-02-10">
-<meta name="description" content="A brief analysis of one of Microsoft Copilot weaknesses">
+<meta name="author" content="Gabriel Thiessen">
+<meta name="dcterms.date" content="2024-03-02">
+<meta name="description" content="Comparing how ChatGPT’s answers vary according to prompts in different languages.">
 
-<title>My experience with LLMs - 1 + 1 = 2 … perhaps not for Microsoft Copilot</title>
+<title>My experience with LLMs - Portuguese to English, English to Portuguese.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,16 +116,17 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">1 + 1 = 2 … perhaps not for Microsoft Copilot</h1>
+      <h1 class="title">Portuguese to English, English to Portuguese.</h1>
                   <div>
         <div class="description">
-          A brief analysis of one of Microsoft Copilot weaknesses
+          Comparing how ChatGPT’s answers vary according to prompts in different languages.
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">prompting</div>
-                <div class="quarto-category">Copilot</div>
+                <div class="quarto-category">ChatGPT</div>
+                <div class="quarto-category">LLama</div>
+                <div class="quarto-category">Google Gemini</div>
               </div>
                   </div>
   </div>
@@ -136,14 +137,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Gabriel </p>
+               <p>Gabriel Thiessen </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 10, 2024</p>
+        <p class="date">March 2, 2024</p>
       </div>
     </div>
     
@@ -162,46 +163,31 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><img src="mainCounting.png" width="50%"> Prompt: Draw an image of ChatGPT counting letters in words.</p>
-<section id="a-simple-counting-problem" class="level2">
-<h2 class="anchored" data-anchor-id="a-simple-counting-problem">A simple counting problem</h2>
-<ul>
-<li>For most people, counting numbers is a simple operation composed of basically adding numbers. From an early age, most of us know how to compute 1 + 1, 2 + 2, and 2 - 1. It is an intuitive operation that is ubiquitous in our daily lives. As LLMs are basically developed to generate responses that are most likely human ones, one would infer that LLMs do not have a problem in computing the total price of multiple objects, calculating means and medians, and counting the number of letters in a single word… However, this last one might not be so easy for them to figure out. To better understand what I am saying, let’s go through a sample question</li>
-<li><blockquote class="blockquote">
-<p>Count the number that each letter appears in the word college.</p>
-</blockquote></li>
-</ul>
-<p>You will probably answer something like <strong>c = 1, o = 1, l = 2, e = 2, g = 1</strong>…</p>
-<p>And that’s it! There is no interpretation, no magical formula, no advanced counting theorem. Just pure and simple math. However, how do we really perform this operation?</p>
-<section id="how-do-we-do-it" class="level3">
-<h3 class="anchored" data-anchor-id="how-do-we-do-it">How do we do it?</h3>
-<p>Some people might deliberate a bit on these simple additions, especially people who might instantly respond to the questions. No matter if it is our automatic or analytical brain system (shoutout to Daniel Kahneman) that is performing the operation, one thing is for sure: it is a simple counting operation.</p>
-<p>We basically identify different characters visually based on previous knowledge of the alphabet and its characters and perform logical steps composed of adding numbers to check how many times the characters with the same visual representation are represented in this specific range of letters. This ability to perform simple operations (which are not too simple for a machine) comes from our brain’s impressive capacity for interpreting, storing, and using visual data for other means. It is as simple as that: you look, interpret, and do whatever you want with this information without any additional step to evaluate such values. However, that is not how LLMs work.</p>
-<p>To perform any type of operation, LLMs rely on a process called tokenization. Tokenization is one of the fundamental steps in data analysis for LLMs in which they process, usually words, as a set of integers. For instance, while we read “dog” as just “dog,” a machine interprets dogs as 001. This step is pivotal for generative AI, as it allows the machine to make associations of what words most often appear after the dog in a sentence and, thus, allows it to come up with a plausible answer.</p>
-<p><strong>But letters are a whole different story…</strong> You might be wondering, what if we want to analyze letters in a word? This tokenization process is then applied to each individual character in the designated word, which turns out to be troublesome for some specific LLMs. In the case of Copilot, no matter if it is a common word in terms of recurrence or an unusual word, it has difficulties in tokenizing it. Check it out below.</p>
+<p><img src="portuguese.png" width="100%"> Prompt: Generate an image of ChatGPT trying to speak Portuguese and English.</p>
+<section id="is-chatgpt-polyglot-or-at-least-does-he-interpret-all-the-languages-the-same" class="level2">
+<h2 class="anchored" data-anchor-id="is-chatgpt-polyglot-or-at-least-does-he-interpret-all-the-languages-the-same">Is ChatGPT polyglot? Or at least, does he interpret all the languages the same?</h2>
+<p>As a non-native English speaker, I often feel that my brain is just an inner turmoil of different languages: I read texts in English and listen to my professors lecturing in English but think in Portuguese, sometimes in English. Honestly, it is not easy, but I feel that I am gradually getting used to it and processing my thoughts mostly in English in a really natural and, from a logical and grammatical standpoint, correct way. I mean, when reading or listening to something in English, fundamentally no meaning or important information is lost in meanwhile I process such information. However, it took me years of learning the language to be able to do it so, and lots of help from the magical complexity of the human brain, and its capabilities such as as neuroplasticity and ability to make logical correlations and inferences in a matter of milliseconds.</p>
+<p>So, after wondering about how I actually deal with thinking in two languages at the same time, I caught myself intrigued: is ChatGPT able to do it?</p>
+<section id="of-course-chatgpt-can" class="level3">
+<h3 class="anchored" data-anchor-id="of-course-chatgpt-can">“Of course ChatGPT can!”</h3>
+<p>Well, yes, ChatGPT is for sure able to do it. In fact, if you ask ChatGPT what languages he can interpret, this is his answer.</p>
+<p><img src="chatgptlanguages.png" width="50%"></p>
+<p>Considering that ChatGPT is an LLM with approximately 175 billion parameters, it was quite expected that ChatGPT would be polyglot. But I really want to show with this article is to what extense. In this case, I will evaluate whether ChatGPT 4 can generate the same answer to equal prompts but in three different contexts: asking in English, asking in Portuguese, and writing a prompt in English but asking ChatGPT to answer it in Portuguese (additionally, I will check this different cases in distinct browser windows, to avoid ChatGPT to be based on previous prompts). Also, the question will be, “Can you explain to me what an LLM is?” Therefore, let’s go to prompting!</p>
 </section>
-<section id="how-does-copilot-respond-to-the-prompt" class="level3">
-<h3 class="anchored" data-anchor-id="how-does-copilot-respond-to-the-prompt">How does Copilot respond to the prompt?</h3>
-<p><strong>GPT3.5 Turbo</strong></p>
-<p><img src="anthropology.png" width="50%"></p>
-<ul>
-<li>As you can see, it has a lot of difficulties processing the word <strong>anthropology</strong>.</li>
-</ul>
-<p><strong>What about other words</strong></p>
-<p><img src="college.png" width="50%"></p>
-<ul>
-<li>This time, though, Copilot successfully counted the number of letters in the word <strong>college</strong></li>
-</ul>
-<p><strong>Is is the same thing for ChatGPT 4?</strong></p>
-<p><img src="gpt.png" width="50%"></p>
-<ul>
-<li>Unlike what you may be thinking, not actually. Supposedly, Copilot uses Open AI’s GPT 4, too. However, when we insert the exact same prompt on ChatGPT 4, it <strong>answers correctly</strong>!</li>
-</ul>
-<p><strong>What can we conclude with this experiment?</strong></p>
-<p>I would say that the results obtained can show us two important things: LLMs are still, in general, not good at processing individual words, and ChatGPT 4 and Copilot are perhaps not as similar as we thought.</p>
-<p>Regarding the first assertion, doing this experience makes it really easy to visualize the limitations of performing tokenization in comparison to the way that the human brain interprets words and counting. Probably, for more unusual words, like <strong>anthropology</strong>, Copilot simply attributes the same tokens to different letters or computes syllables as single words. Meanwhile, for more usual words in the English language, like <strong>college</strong>, its word tokenization process is more optimized and thus does not generate any problem in terms of interpretation and computation.</p>
-<p><strong>WHAT ABOUT ChatGPT 4?</strong></p>
-<p>Well, that is content for other articles, but at least in theory, Copilot should behave similarly to ChatGPT 4. Perhaps this indicates that, in fact, ChatGPT 4 and Copilot are not as similar as Microsoft proposed…</p>
+<section id="can-you-explain-to-me-what-an-llm-is" class="level3">
+<h3 class="anchored" data-anchor-id="can-you-explain-to-me-what-an-llm-is">“Can you explain to me what an LLM is?”</h3>
+<p>Firstly, let’s analyze how ChatGPT answers this question in English.</p>
+<p><img src="ingles.png" width="50%"></p>
+<p>Now, let’s check how ChatGPT answers the question in Portuguese</p>
+<p><img src="port.png" width="50%"></p>
+<p>Finally, let’s see how ChatGPT performs when mixing the two languages.</p>
+<p><img src="ingport.png" width="50%"></p>
+<p>Ummm, interesting…</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>Well, you don’t have to be a polyglot, be a communication wizard, or fluently speak both Portuguese and English to realize that, yes, its answers vary based on the prompt and the language that you used to make the prompt. In the case of pure English, ChatGPT seemed to provide a really straightforward and correct answer. Also, unlike the response in Portuguese, it goes on to briefly explain some of the technical concepts related to the field, as well as what the acronym stands for. Meanwhile, in Portuguese, ChatGPT seems to provide an answer that is way more developed, with bulletproofs, key concepts, and introductory, development, and conclusive parts to the answer. Still, in both cases ChatGPT generated answers that are quite similar, but slightly vary on the way they were presented and how concepts were explained, such as transformers and training. But, when it comes to the last case, which consisted of asking ChatGPT in English to provide an answer in Portuguese, then we it was possible to witness a major difference. Unlike the previous cases, this time, ChatGPT generate a way less technical explanation, barely went through the most important aspects of LLMs, and, just by visualizing the size of the answer, one can tell that it not even close to being as complete as the previous ones.</p>
+<p>It is difficult, though, to understand why such a significant discrepancy occurred. Usually, when I ask ChatGPT to translate words from Portuguese to English, it does quite a good job. However, my guess to why this happens is that OpenAI is perhaps not really focused on training ChatGPT to intercalate languages in its prompts, as it something quite not “natural” to be asked. While the reason for this might still be a little uncertain, I believe that I can rest in knowing that my overwhelmed brain processing Portuguese and English is still a little bit ahead of ChatGPT information processing capacity. At least for now…</p>
 <p><strong>Thank you for reading!</strong></p>
 
 

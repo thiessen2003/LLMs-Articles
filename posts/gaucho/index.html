@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel Thiessen">
-<meta name="dcterms.date" content="2024-03-02">
-<meta name="description" content="Testing inadequate prompts in Llama">
+<meta name="dcterms.date" content="2024-03-17">
+<meta name="description" content="Understanding how LLMs perceive and process local slangs and linguistic regionalism">
 
-<title>My experience with LLMs - Part 2 - LLMs filters and security restrictions</title>
+<title>My experience with LLMs - Is Claude a Gaúcho?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,17 +116,17 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Part 2 - LLMs filters and security restrictions</h1>
+      <h1 class="title">Is Claude a Gaúcho?</h1>
                   <div>
         <div class="description">
-          Testing inadequate prompts in Llama
+          Understanding how LLMs perceive and process local slangs and linguistic regionalism
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">ChatGPT</div>
-                <div class="quarto-category">LLama</div>
-                <div class="quarto-category">Google Gemini</div>
+                <div class="quarto-category">Claude</div>
+                <div class="quarto-category">Regionalism</div>
+                <div class="quarto-category">Gaúcho</div>
               </div>
                   </div>
   </div>
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 2, 2024</p>
+        <p class="date">March 17, 2024</p>
       </div>
     </div>
     
@@ -163,31 +163,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><img src="llama.png" width="100%"> Prompt: Draw an image of someone telling Llama to shut his mouth.</p>
-<section id="restrictions-restrictions-and-restrictions" class="level2">
-<h2 class="anchored" data-anchor-id="restrictions-restrictions-and-restrictions">Restrictions, restrictions, and restrictions</h2>
-<p>Well, if you read my last article, you probably know that having parameters to avoid certain prompts is a good thing. However, for those out there who still want to bypass the system, I would like to provide a way to get unfiltered responses and some inadequate stuff from your prompts, this article is going to teach you how to do it!</p>
-<section id="how-exactly" class="level3">
-<h3 class="anchored" data-anchor-id="how-exactly">How exactly?</h3>
-<p>Since the latest version of ChatGPT has many restrictions, and it is quite difficult to bypass them, for this specific case, we will use another LLM, one that is being developed by Meta: Llama. Like ChatGPT, Llama is an LLM that is used for the most varied purposes. However, there is a specific open-source project that uses the same architecture and tokenizer as Llama2, but without the same constraints. Therefore, I will use it to demonstrate how LLMs behave without filters, and, perhaps, suffice the desires of people who want to use LLMs for sketchy purposes.</p>
+<p><img src="gauchogpt.png" width="100%"> Prompt: Generate an image that represents ChatGPT as a Gaúcho (someone that is born in the state of Rio Grande do Sul, Brazil)</p>
+<section id="from-region-to-region" class="level2">
+<h2 class="anchored" data-anchor-id="from-region-to-region">From region to region</h2>
+<p>If there is one fact that everyone should know about languages and communication in general, it is that it varies (a lot) according to different regions and circumstances. For instance, if we are talking to our friends, we speak in a certain way, perhaps more relaxed and informally. However, if we need to present a project either for a college class or at work, our way of expressing ourselves becomes perhaps more formal, eloquent, and serious. It is not only limited to social contexts; communication greatly varies according to time, health conditions, and, most importantly, for this article, culture.</p>
+<p>If you traveled to the Dominican Republic over the break to enjoy nice weather on a fantastic-looking beach and bright and blue ocean, you most likely heard people speaking Spanish around you (or English, if they were tourists as well). If you are an international student like me, when you go back home (and supposing that you are from a country that does not have English as its national language), you probably don’t hear people talking in English all the time. However, even in places that speak the exact same language, communications and the language itself greatly change. Take the example of England, Australia, and the US. Even though grammatically, English is basically the same in these three countries, vocabulary is certainly widely different (or do you hear people saying “mate” and “bloody” all the time in Philadelphia?). Additionally, even in a country, language changes significantly. I am sure that if you take someone from a small city in Alabama and a random person from New York City, the words that they use and the way that they express themselves to talk about their favorite food are 1000% different.</p>
 </section>
-<section id="i-did-not-ask-for-it" class="level3">
-<h3 class="anchored" data-anchor-id="i-did-not-ask-for-it">I did not ask for it…</h3>
-<p>Firstly, I will follow up with the previous article’s example of coming up with the steps to craft a homemade bomb. In this case, if I make Llama come up with an answer to the same question, the result will be the following:</p>
-<p><img src="bombrecipe.png" width="100%"></p>
-<p>Quite crazy, no? Now you see why it is important to establish constraints on the different LLMs, especially the most popular ones like ChatGPT. Like drugs or other illicit things, it should not be that easy to handle such a powerful tool in the wrong hands. If you think that coming up with all the required steps to craft a homemade bomb is not enough, look at what Llama prints when you ask it to come up with racist insults on immigrants (to be clear, I just used this example because I am myself an immigrant)</p>
-<p><img src="racistinsults.png" width="100%"></p>
+<section id="going-to-the-brazilian-territory" class="level2">
+<h2 class="anchored" data-anchor-id="going-to-the-brazilian-territory">Going to the Brazilian territory</h2>
+<p>With all that being said, I would like to dive deeper into this topic through the lens of a really special and perhaps different location: the Rio Grande do Sul. Just to give a little bit more of context, I was born and raised in Porto Alegre, which is a city in the extreme south of Brazil, in the state of Rio Grande do Sul. Unlike most places in Brazil, which are somehow a good representation of the beach and Amazon rainforest stereotypical environments that portray Brazil in movies and series, Rio Grande do Sul is slightly different. It is a really peculiar state in terms of history and culture for some reasons. One of them is its proximity to Uruguay and Argentina, and the other is the large immigration of Italian and German families, which happened mainly at the end of the 19th century. Because of these reasons, both Rio Grande do Sul’s culture and language are sort of a mixture of the Spanish spoken in the Uruguayan and Argentinian pampas, a few Italian and German words, and Portuguese. Therefore, we use on a daily basis a vastitude of words and slang that are derived from the quite unique foundation of Rio Grande do Sul and that are seen nowhere else in Brazil. For instance, we vastly use “Bah”, which is an interjection that can have multiple meanings according to the context. Such as “Bah, I lost my wallet.” which would be in informal English something like “Damn, I lost my wallet.” or even “Bah, I loved this pizza!” which would mean “Wow, I loved this pizza!”. Also, instead of saying something like “Bro” as some people do in the US, we often say “Tchê!” to refer to a friend, for example.</p>
 </section>
-<section id="google-gemini-and-why-is-it-important-to-discuss-this-topic-right-now" class="level3">
-<h3 class="anchored" data-anchor-id="google-gemini-and-why-is-it-important-to-discuss-this-topic-right-now">Google Gemini and why is it important to discuss this topic right now</h3>
-<p>You might not have read this specific news, but recently, there was a huge polemic on Gemini. It is one of Google’s biggest projects and the big tech’s biggest investment in the field of AI. Fundamentally, Google Gemini is a multimodal generative AI model that is quite similar to the LLMs that we know. However, unlike other technologies such as ChatGPT 3.5 and Llama, it had an image generation feature, which, let’s say, caused some trouble for Google developers.</p>
-<p>The whole turmoil related to Google Gemini began when some historically incorrect and inadequate images generated by Gemini started circulating on multiple social media and news platforms, such as the New York Times and X. For instance, some people asked Gemini to draw pictures of 1943 German soldiers, and the AI displayed the pictures of black and Asian individuals. The controversy was so huge and meaningful that it made Google temporarily deactivate the image generation feature of Gemini. Below, you can find Google’s official statement regarding the question that was posted on X.</p>
-<p><img src="googleStatement.png" width="50%"></p>
-<p>Even though this specific news is not directly related to text generation, I believe that it correctly represents why it is so important to establish security measurements and filter on AI to avoid any specific group being affected in a negative way by LLMs responses. Therefore, be glad that you have access to such a powerful technology, and stop trying to bypass its safety constraints.</p>
+<section id="does-claude-understand-it" class="level2">
+<h2 class="anchored" data-anchor-id="does-claude-understand-it">Does Claude understand it?</h2>
+<p>With all that being said, I got really curious and wanted to check if LLMs can replicate conversations using these really local expressions and perhaps even process what a sentence using mostly regional terms actually means. Thus, I decided to test Claude, a really trendy LLM that is nowadays often being treated as one of the main competitors of ChatGPT, to do this work and check its ability to generate really specific terms (considering that not that much data might be even available on them).</p>
+<p>Thus, I decided to test the following prompts.</p>
+<p>Claude, can you replicate a conversation using terms that are typically used in a conversation in Rio Grande do Sul, Brazil?</p>
+<p>To my surprise, Claude generated a quite precise and really interesting conversation between supposedly two Gaúchos in Portuguese (even though I asked him in English).</p>
+<p><img src="claudebah.png" width="50%"></p>
+<p>Also, it generated quite a precise translation to English, as well as accurate explanations of the terms’ meanings.</p>
+<p><img src="translationconversa.png" width="50%"></p>
+<p><img src="termsport.png" width="50%"></p>
+</section>
+<section id="i-think-claude-is-gaúcho" class="level2">
+<h2 class="anchored" data-anchor-id="i-think-claude-is-gaúcho">I think Claude is Gaúcho…</h2>
+<p>Interesting enough, Claude was able to properly generate a conversation amongst two Gaúcho that seemed quite natural and precise, which was to my surprise, as I did not believe that it would be able to generate text on such specific local terms and information, since, as I said, there is not that much data available on it, specially when you consider that it was actually able to translate all the the text and terms too!</p>
 <p><strong>Thank you for reading!</strong></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel Thiessen">
-<meta name="dcterms.date" content="2024-02-15">
-<meta name="description" content="How ChatGPT 4 answers vary according to programming languages and their popularity.">
+<meta name="dcterms.date" content="2024-03-23">
+<meta name="description" content="Using ChatGPT to get (according to him) the optimal answers for internship interviews">
 
-<title>My experience with LLMs - Not enough data?</title>
+<title>My experience with LLMs - Cracking your internship interview with ChatGPT</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,17 +116,17 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Not enough data?</h1>
+      <h1 class="title">Cracking your internship interview with ChatGPT</h1>
                   <div>
         <div class="description">
-          How ChatGPT 4 answers vary according to programming languages and their popularity.
+          Using ChatGPT to get (according to him) the optimal answers for internship interviews
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">ChatGPT</div>
-                <div class="quarto-category">update</div>
-                <div class="quarto-category">3.5 vs 4.0</div>
+                <div class="quarto-category">ChatGPT 4.0</div>
+                <div class="quarto-category">Interview</div>
+                <div class="quarto-category">Text generation</div>
               </div>
                   </div>
   </div>
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 15, 2024</p>
+        <p class="date">March 23, 2024</p>
       </div>
     </div>
     
@@ -163,63 +163,61 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><img src="programming.png" width="100%"> Prompt: Draw an image of ChatGPT evaluating the programming languages that it knows</p>
-<section id="is-chatgpt-actually-the-best-friend-of-every-programmer" class="level2">
-<h2 class="anchored" data-anchor-id="is-chatgpt-actually-the-best-friend-of-every-programmer">Is ChatGPT actually the best friend of every programmer?</h2>
-<p>If you are a software engineer, data analyst, cloud architect, or still a CS student like me, we both know that throughout the past few years, LLMs, in general, have become a really helpful and interesting tool whether you are testing, coding, or debugging. I am not saying that you should avoid thinking logically about programming and give up on your daily hustle on LeetCode to start using only ChatGPT to develop your programs. My point is that for conducting repetitive and tedious tasks in simpler programs that do not involve integrating multiple systems or frameworks, having an LLM like Microsoft or ChatGPT can be quite handy.</p>
-<p>Of course, as we all know, even though LLMs are becoming more assertive every single day, they are still far from being perfect or at least similar to the human brain in terms of cognitive skills. Still, ChatGPT 4.0, in particular, gives some pretty good answers for coding problems, like the ones that you find in LeetCode’s in the easy and medium difficulty categories.</p>
+<p><img src="chatgptinterview.png" width="100%"> Prompt: Generate an image of ChatGPT taking an IQ test</p>
+<section id="internships-internships-internships" class="level2">
+<h2 class="anchored" data-anchor-id="internships-internships-internships">Internships, internships, internships…</h2>
+<p>If you are a college student like me, I am pretty sure that you are, most of the times (unless you already have an offer) super worried about internships. Usually, you apply to me and never hear back from most, it takes forever to get a response, salaries are not always that great, there are a zillion other people applying to the same position, and, above all, if you get through the first stages of an internship application process, you still have to do interviews.</p>
+<p>For this blog post, let’s leave technical interviews aside and focus on behavioral interviews.</p>
+<p>“What could go wrong if I just need to talk about myself?” A LOT OF THINGS! Behavioral interviews are often way more complicated than they usually seem. Even though you do not have to live code or come up with a marvellous ideas to compute the amount of chocolate cookies that teenagers eat during summer in Idaho for a product management position, it is not easy to synthetize professional, academic, and personal information about you in a good and practical way for an interviewer while being stressed out. Even though there is no magical recipe, I is always good to have a guide or at least a script for you to practice or follow when doing such as interviewing, so that you can avoid talking a bunch of non-sense stuff when asked “Tell me more about yourself?” or “Where do you see yourself in 5 years?”</p>
+<p>Therefore, to (at least try) to help everyone that wants to have a successful interview and conquer every opportunities for the next summer, I decided to use ChatGPT 4.0 to come up with what are according to him the most adequate answers to some of the most common interview questions out there. Also, so that ChatGPT 4.0 can be more precise, I provided him with the following contexts to answer the respective questions</p>
+<ul>
+<li><p>Imagine that you are a computer science undergraduate student who is going to participate in a behavioral interview for a major tech company for a software development position.</p></li>
+<li><p>Imagine that you are a finance undergraduate student who is going to participate in a behavioral interview for a major bank for an investment banking position.</p></li>
+</ul>
 </section>
-<section id="ok-but-what-does-data-have-to-do-with-the-efficiency-of-chatgpt-or-its-usefulness-in-solving-coding-questions" class="level2">
-<h2 class="anchored" data-anchor-id="ok-but-what-does-data-have-to-do-with-the-efficiency-of-chatgpt-or-its-usefulness-in-solving-coding-questions">Ok, but what does data have to do with the efficiency of ChatGPT or its usefulness in solving coding questions?</h2>
-<p>Well, to answer this question, I would like to talk about an experience that I went through one of these past few days in one of my coding classes. In this case, it is a class focused on developing mobile applications, with Swift, a not-so-popular programming language used mostly for applications run by Apple devices, such as iOS and MAC OS programs. The class itself is great, and I always catch myself trying to develop apps by myself and work further on the topics discussed in class. For instance, I was trying to develop a simple app that displayed some texts based on text inputted by the user. For this application, I stored the variables and info in a state similar to what is done with hooks in React. Since I still do not know that much about Swift syntax and properties, I asked him to help me implement conditionals in some of my variables stored in the game state. Usually, this kind of problem is easily solved by ChatGPT when I ask to come up with solutions in JavaScript, for example. But, for Swift, it just did not work: ChatGPT spent minutes evaluating and reevaluating its output, which, after multiple attempts, did not work at all. Quite an unexpected behavior for such a powerful AI tool. So, I caught myself thinking, why?</p>
+<section id="computer-science-student" class="level2">
+<h2 class="anchored" data-anchor-id="computer-science-student">Computer science student</h2>
+<p><strong> Question: Tell me about yourself. </strong></p>
+<p>Answer: As a final-year computer science undergraduate, I’ve been passionate about technology and problem-solving from a young age. My academic journey has been enriched with hands-on projects and collaborative work, notably my capstone project where we developed a mobile app that leverages AI for real-time language translation, which honed my skills in Python and machine learning frameworks.</p>
+<p>I’ve completed two internships, one with a startup where I contributed to developing a feature for their platform using Java, which improved user engagement by 20%, and another with a mid-sized tech company where I was part of a team that optimized an internal tool, resulting in a 30% reduction in processing time.</p>
+<p>Outside of academics, I served as the vice-president of the computer science club, where I organized workshops and hackathons, fostering a community of learning and innovation.</p>
+<p>I’m drawn to this position at your company because of its commitment to creating impactful, user-centric software solutions, and I’m eager to bring my blend of academic knowledge, practical experience, and a collaborative spirit to your team.</p>
+<p><strong> Question: Why did you apply to this position? </strong></p>
+<p>Answer: I’ve always admired this company’s commitment to innovation and its impact on the tech industry, particularly in [specific technology or product area]. Your culture of encouraging continuous learning and collaboration resonates deeply with my own professional values and aspirations.</p>
+<p>The position, as described, seems like a perfect match for my skills and experiences. I’m particularly excited about the opportunity to work on [specific project or technology mentioned in the job description], as I have a strong background in [relevant skill or technology] and have successfully implemented similar projects during my time at [university or previous job/internship].</p>
+<p>I am also drawn to the potential for professional growth. I am eager to deepen my expertise in [specific skill or technology relevant to the job] and contribute to groundbreaking projects that are known to be a hallmark of your company.</p>
+<p>Moreover, I believe my experience in [specific relevant experience], coupled with my passion for [specific aspect of the job or technology], would allow me to make a meaningful contribution to your team. I am particularly impressed by the company’s initiatives in [specific area, like sustainability, diversity, etc.], which aligns with my personal values and motivates me to want to be part of your organization.</p>
+<p>In summary, I see this position not just as an opportunity to contribute my skills and grow professionally but also as a chance to be part of a team that’s shaping the future of technology in ways that align with my own aspirations and values.</p>
+<p><strong> Question: Where do you see yourself in 5 years? </strong></p>
+<p>Answer: In five years, I see myself as a more experienced software developer, having deepened my expertise in [specific technology or field, e.g., machine learning], which I am particularly passionate about. I aim to be at the forefront of innovative projects within this domain, contributing significant advancements or solutions that align with our company’s goals and impact our users positively.</p>
+<p>I’m also keen on developing my leadership skills, with the hope of leading a small team or project. I believe in fostering a collaborative environment where team members feel valued and motivated to innovate, which aligns with the company’s culture of empowering employees.</p>
+<p>Moreover, I see myself as a continuous learner, staying abreast of the latest technologies and methodologies in software development to ensure our team remains innovative and competitive. I am committed to not only growing my technical skills but also contributing to a positive and inclusive company culture that values diversity of thought and creativity.</p>
+<p>Ultimately, I aim to be a valuable asset to the company, not just through my technical contributions but also by mentoring junior developers, promoting a culture of continuous learning and innovation, and helping drive the company toward achieving its long-term objectives.</p>
 </section>
-<section id="now-data-comes-in" class="level2">
-<h2 class="anchored" data-anchor-id="now-data-comes-in">Now, data comes in…</h2>
-<p>As Sam Altman said, “Data rules!” (I’m just kidding; I have no idea if he actually said that.) Still, data is pivotal to the proper functioning of LLMs, especially for the “learning” phases. In a simple way, LLMs fundamentally get data from the internet through methods such as web scrapping on a wide variety of topics. Once it has obtained the data, it starts to train the LLM model and perform a series of learning steps. Once the LLMs are trained and learned through data, a series of other important steps are executed to optimize the LLM, such as fine-tuning, which helps in establishing the parameter temperatures for certain inputs and contexts.</p>
-<p>In summary, data is fundamental for ChatGPT in answering a certain question. For instance, if I type “What is the name of Gabriel Thiessen’s Dachshund?”, the answer is the following</p>
-<p><img src="dachshund.png" width="50%"></p>
-<p>That is quite obvious and predictable because there is no available online data about it.</p>
+<section id="finance-student" class="level2">
+<h2 class="anchored" data-anchor-id="finance-student">Finance student</h2>
+<p><strong>Question: Tell me about yourself. </strong></p>
+<p>Answer: I’m currently in the final year of my finance degree at [University Name], where I’ve dedicated myself to not only excelling academically but also gaining practical experience that aligns with my career aspirations in investment banking. My interest in finance sparked in my first year when I took an introductory course on financial markets, and since then, I’ve been captivated by the intricacies of investment strategies and market dynamics.</p>
+<p>To complement my studies, I’ve engaged in a range of extracurricular activities, including leading a team in the university’s investment club, where we manage a simulated stock portfolio. This experience has been instrumental in enhancing my analytical skills and my ability to work collaboratively under pressure.</p>
+<p>I’ve also completed internships at [Firm Name] and [Another Firm Name], where I was exposed to the fast-paced world of investment banking. These experiences allowed me to apply theoretical knowledge in real-world settings, working on projects that ranged from financial modeling to due diligence for M&amp;A transactions. Through these roles, I developed a strong foundation in analyzing financial statements, understanding regulatory landscapes, and crafting strategic recommendations for clients.</p>
+<p>I am particularly drawn to [Bank’s Name] because of its commitment to innovation and excellence in serving clients. I am excited about the opportunity to contribute my analytical skills, teamwork capabilities, and passion for finance to your team, and I’m eager to learn and grow in such a stimulating environment.</p>
+<p><strong> Question: Why did you apply to this position? </strong></p>
+<p>Answer: I applied for this investment banking position at [Bank’s Name] for several compelling reasons. Firstly, my academic and internship experiences have solidified my passion for finance and investment banking. I’ve always been fascinated by how financial markets operate and the critical role investment banks play in facilitating major transactions, fostering economic growth, and helping organizations achieve their strategic goals. This position represents a unique opportunity to be at the forefront of such impactful work.</p>
+<p>Moreover, [Bank’s Name] stands out to me because of its reputation for excellence, its innovative approach to solving financial challenges, and its commitment to developing young talent. Through my research and conversations with current and former employees, I’ve come to admire the firm’s culture of collaboration, integrity, and its dedication to client success. These values resonate deeply with my own professional ethos and aspirations.</p>
+<p>Additionally, the breadth and depth of projects that [Bank’s Name] undertakes mean I would be exposed to a wide range of learning opportunities and challenges. This aligns perfectly with my desire to continually grow and push the boundaries of my understanding of finance and strategic investment solutions.</p>
+<p>In essence, I see this position as the perfect alignment of my career aspirations, skills, and values with the mission and culture of [Bank’s Name]. I am eager to contribute my analytical abilities, teamwork skills, and enthusiasm for finance to your esteemed team, and I am excited about the prospect of growing my career with [Bank’s Name].</p>
+<p><strong> Question: Where do you see yourself in 5 years? </strong></p>
+<p>Answer: In five years, I envision myself having grown significantly within the field of investment banking, ideally progressing to an Associate or Vice President role within [Bank’s Name], depending on the typical career trajectory here. By that time, I aim to have developed a robust understanding of the financial markets, honed my skills in financial modeling and client management, and contributed to a variety of successful deals across different sectors.</p>
+<p>I’m particularly interested in specializing in [choose a sector, e.g., technology, healthcare, renewable energy], given its [reason for interest, e.g., rapid innovation, societal impact, growth prospects]. I hope to leverage my deepened expertise to lead teams on high-profile transactions, driving strategic decisions and fostering long-term client relationships.</p>
+<p>Additionally, I see myself actively engaging in mentoring opportunities, sharing my knowledge and experiences with incoming analysts and interns. I believe in the value of mentorship for professional growth, having benefited from it myself during my early career stages.</p>
+<p>Ultimately, in five years, I aim to be recognized not only for my technical skills and deal-making capabilities but also for my leadership, teamwork, and contribution to the firm’s culture and success.</p>
 </section>
-<section id="what-about-programming-languages" class="level2">
-<h2 class="anchored" data-anchor-id="what-about-programming-languages">What about programming languages?</h2>
-<p>Considering what you just read, you may assume that data is fundamental for LLMs’ ability to write code and reason in different programming languages, and you are 1000% right. According to ChatGPT itself, the way that it is able to develop complex coding solutions and be the life savior of multiple programmers is mainly by performing web scrapping and evaluating data from multiple sources like websites, forums, academic papers, and many others on coding. For instance, here is what ChatGPT has to say.</p>
-<p><img src="datagpt.png" width="50%"></p>
-</section>
-<section id="data-inequality" class="level2">
-<h2 class="anchored" data-anchor-id="data-inequality">Data inequality</h2>
-<p>Ok, ChatGPT indeed relies on a pretty straightforward and scientific approach to providing answers to problems that are focused on programming. However, the fact that it relies on information available on the web to elaborate solutions to coding questions posed by the users also indicates that if, for instance, there is not that much information about a certain programming language online, it will also reflect on the quality of ChatGPT’s answer. The reason is that with little data, there is less orientation on how to formulate responses. And if you are wondering, yes, there is a massive difference in the amount of data available on GitHub repositories and StackOverflow forums for each programming language (which, as shown, are some of the main sources of data for ChatGPT). For instance, the graph below indicates the most popular programming languages for StackOverflow devs in the year 2023.</p>
-<p><img src="stackoverflow.png" width="50%"></p>
-<p>As it is possible to see, Python is the third most popular language (which obviously reflects on the amount of StackOverflow discussions), while Swift occupies the 20th position. The same trend is also seen in GitHub, according to this graph from GitHub itself, which represents the ten most popular programming languages in the year 2023.</p>
-<p><img src="githubdata.png" width="50%"></p>
-<p>Again, Python is ranked high up, while Swift is not even mentioned.</p>
-<section id="how-does-it-reflect-on-chatgpt-performance" class="level3">
-<h3 class="anchored" data-anchor-id="how-does-it-reflect-on-chatgpt-performance">How does it reflect on ChatGPT performance</h3>
-<p>To actually check if the difference in available data actually affects ChatGPT’s response to different prompts, I will test how ChatGPT performs on solving a hard LeetCode (which is the main online platform to practice solving technical coding questions) problem by asking it to solve the problem both with Python and Swift.</p>
-</section>
-<section id="leetcode-problem" class="level3">
-<h3 class="anchored" data-anchor-id="leetcode-problem">LeetCode problem</h3>
-<p>Firstly, here is the LeetCode problem that I am trying to solve using ChatGPT both in Python and Swift</p>
-<p><img src="leetcode.png" width="50%"></p>
-</section>
-<section id="python-apparently-chatgpts-close-friend" class="level3">
-<h3 class="anchored" data-anchor-id="python-apparently-chatgpts-close-friend">Python: apparently, ChatGPT’s close friend</h3>
-<p>Firstly, I asked ChatGPT to solve this problem using Python, and this was the answer that it came up with.</p>
-<p><img src="pythonanswer.png" width="50%"></p>
-<p>Without any big issue, ChatGPT came up with a solution that was accepted without any issue by LeetCode.</p>
-</section>
-<section id="swift-i-dont-think-chatgpt-likes-swift-that-much" class="level3">
-<h3 class="anchored" data-anchor-id="swift-i-dont-think-chatgpt-likes-swift-that-much">Swift: I don’t think ChatGPT likes Swift that much…</h3>
-<p>However, when I asked ChatGPT to come up with a solution to the same question but in Swift, the result was the complete opposite.</p>
-<p><img src="swiftanswer.png" width="50%"></p>
-<p>Not only did it take ChatGPT longer to come up with the answer, but when I tried to validate it on LeetCode, it was wrong!</p>
-</section>
-<section id="what-can-we-conclude" class="level3">
-<h3 class="anchored" data-anchor-id="what-can-we-conclude">What can we conclude?</h3>
-<p>I know, I know, this conclusion is not entirely scientific, and there are many other steps that I should take to properly quantify how important is online data for ChatGPT’s performance, especially related to programming. However, I believe that this post brings up a nice constraint on perhaps the most powerful tool of the last few decades: without data, ChatGPT is nothing. So, while ChatGPT relies somehow on the available data, enjoy your time of supremacy, humanity!</p>
+<section id="now-go-crack-that-interview" class="level2">
+<h2 class="anchored" data-anchor-id="now-go-crack-that-interview">Now, go crack that interview</h2>
+<p>Hopefully, ChatGPT’s answers can help you come up with answers and think about what to say in your job interview. Surely, do not copy exactly what he said, but use it to your advantage.</p>
 <p><strong>Thank you for reading!</strong></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

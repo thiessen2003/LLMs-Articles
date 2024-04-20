@@ -3,18 +3,19 @@
     "listing": "/index.html",
     "items": [
       "/posts/cartoon-Copy1/index.html",
+      "/posts/cartoon-Copy1-Copy1/index.html",
       "/posts/logic-Copy1/index.html",
       "/posts/cartoon/index.html",
       "/posts/can_you_hear_that/index.html",
       "/posts/logic/index.html",
       "/posts/gaucho/index.html",
-      "/posts/llama2/index.html",
       "/posts/portuguese/index.html",
-      "/posts/llama/index.html",
+      "/posts/llama2/index.html",
       "/posts/irobot/index.html",
+      "/posts/llama/index.html",
       "/posts/coding/index.html",
-      "/posts/superbowl/index.html",
       "/posts/counting_copilot/index.html",
+      "/posts/superbowl/index.html",
       "/posts/newvsold/index.html"
     ]
   }

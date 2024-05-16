@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -175,9 +175,9 @@ ul.task-list li input[type="checkbox"] {
 <p>And that’s it! There is no interpretation, no magical formula, no advanced counting theorem. Just pure and simple math. However, how do we really perform this operation?</p>
 <section id="how-do-we-do-it" class="level3">
 <h3 class="anchored" data-anchor-id="how-do-we-do-it">How do we do it?</h3>
-<p>Some people might deliberate a bit on these simple additions, especially people who might instantly respond to the questions. No matter if it is our automatic or analytical brain system (shoutout to Daniel Kahneman) that is performing the operation, one thing is for sure: it is a simple counting operation.</p>
+<p>Some people might deliberate a bit on these simple additions, especially those who might instantly respond to the questions. No matter if it is our automatic or analytical brain system (shoutout to Daniel Kahneman) that is performing the operation, one thing is for sure: it is a simple counting operation.</p>
 <p>We basically identify different characters visually based on previous knowledge of the alphabet and its characters and perform logical steps composed of adding numbers to check how many times the characters with the same visual representation are represented in this specific range of letters. This ability to perform simple operations (which are not too simple for a machine) comes from our brain’s impressive capacity for interpreting, storing, and using visual data for other means. It is as simple as that: you look, interpret, and do whatever you want with this information without any additional step to evaluate such values. However, that is not how LLMs work.</p>
-<p>To perform any type of operation, LLMs rely on a process called tokenization. Tokenization is one of the fundamental steps in data analysis for LLMs in which they process, usually words, as a set of integers. For instance, while we read “dog” as just “dog,” a machine interprets dogs as 001. This step is pivotal for generative AI, as it allows the machine to make associations of what words most often appear after the dog in a sentence and, thus, allows it to come up with a plausible answer.</p>
+<p>To perform any type of operation, LLMs rely on a process called tokenization. Tokenization is one of the fundamental steps in data analysis for LLMs, which process words, usually, as a set of integers. For instance, while we read “dog” as just “dog,” a machine interprets dogs as 001. This step is pivotal for generative AI, as it allows the machine to make associations of what words most often appear after the dog in a sentence and, thus, allows it to come up with a plausible answer.</p>
 <p><strong>But letters are a whole different story…</strong> You might be wondering, what if we want to analyze letters in a word? This tokenization process is then applied to each individual character in the designated word, which turns out to be troublesome for some specific LLMs. In the case of Copilot, no matter if it is a common word in terms of recurrence or an unusual word, it has difficulties in tokenizing it. Check it out below.</p>
 </section>
 <section id="how-does-copilot-respond-to-the-prompt" class="level3">
